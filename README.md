@@ -1,3 +1,8 @@
+Some instructions to be followed for contribution:
+
+1) Kindly Clone then edit in your local system and check if it still runs.
+2) Just add your folder/files inside the components folder so that we can just use App.js for routing between different pages.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
