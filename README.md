@@ -12,7 +12,7 @@ Note:
 2) So just add a folder of your page under the "components" folder in src.
 3) For styling, you can import from "Components.js" or "styles.css" under "UserLogin" folder in components folder
 
-Navbar specifications: Checkout the "Navbar" folder under components folder. It contains a file named "MaybeShowNavbar.js", it can be used to choose whether you want to show navbar at a certain page or not.
+Navbar specifications: Checkout the "NavBar" folder under components folder. It contains a file named "MaybeShowNavbar.js", it can be used to choose whether you want to show navbar at a certain page or not.
 
 # Getting Started with Create React App
 
