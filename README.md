@@ -1,3 +1,19 @@
+Repo updated on: 13/11/2023
+
+The repo consists:
+Login page, Sign up page, Navbar, Edit Account - Srinidhi
+Home page - Uthish
+
+Left out pages (to be updated by tomorrow):
+Main page, Forgot Password page
+
+Note:
+1) Don't make any changes in App.js (only to be kept for routing).
+2) So just add a folder of your page under the "components" folder in src.
+3) For styling, you can import from "Components.js" or "styles.css" under "UserLogin" folder in components folder
+
+Navbar specifications: Checkout the "Navbar" folder under components folder. It contains a file named "MaybeShowNavbar.js", it can be used to choose whether you want to show navbar at a certain page or not.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
