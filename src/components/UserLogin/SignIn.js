@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import SignupForm from "./SignupForm";
 import Axios from "axios";
 import { useState } from "react";
+import './Styles.css';
 
 function SignIn() {
     const [signIn, toggle] = React.useState(true);
