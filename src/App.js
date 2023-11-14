@@ -15,7 +15,7 @@ function App() {
       <Routes>
           <Route path="/" element={<SignIn/>}/>
           <Route path="/edit-account" element={<EditAccountForm/>}/>
-
+          <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
     </div>
