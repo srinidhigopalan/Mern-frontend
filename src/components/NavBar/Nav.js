@@ -1,10 +1,25 @@
 import React, { useState } from "react";
-
+import { Axios } from "axios";
 import "./Nav.css";
 import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const RemoveCookie = () => {
+    Axios.delete("https://crud-v5x6.onrender.com/users/user-edit/logout")
+    .then((res)=>{
+      if(res.status===200){
+        alert("Logged out Successfully");
+        window.location.href = '/'; // Replace '/newPage' with the path of the page you want to navigate to
+
+      }
+      else{
+        Promise.reject();
+      }
+    })
+    .catch((err)=>alert(err));
+  };
 
   return (
     <nav>
@@ -23,9 +38,9 @@ const Nav = () => {
         <li>
           <NavLink to="/delete-account">Delete Account</NavLink>
         </li>
-        <li>
-          <NavLink to="/contact">Logout</NavLink>
-        </li>
+
+         <li  onClick={RemoveCookie}><NavLink to="">Logout</NavLink></li>
+
       </ul>
     </nav>
   );
