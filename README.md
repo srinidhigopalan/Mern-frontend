@@ -1,11 +1,9 @@
-Repo updated on: 13/11/2023
+Repo updated on: 15/11/2023
 
 The repo consists:
-Login page, Sign up page, Navbar, Edit Account - Srinidhi
+Login page, Sign up page, Navbar, Edit Account, Forgot Password (also includes reset otp) - Srinidhi
 Home page - Uthish
 
-Left out pages (to be updated by tomorrow):
-Main page, Forgot Password page
 
 Note:
 1) Don't make any changes in App.js (only to be kept for routing).
