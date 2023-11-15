@@ -2,7 +2,10 @@ Repo updated on: 15/11/2023
 
 The repo consists:
 Login page, Sign up page, Navbar, Edit Account, Forgot Password (also includes reset otp) - Srinidhi
+
 Home page - Uthish
+
+Profile page, Reminder Page, Delete Account Page -  Muhila
 
 
 Note:
