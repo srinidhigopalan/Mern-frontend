@@ -2,7 +2,7 @@ import React from 'react'
 import Particles from 'react-tsparticles';
 import {loadFull} from "tsparticles";
 
-function EditParticle(){
+function ForgotParticle(){
     async function loadParticles(main){
        await loadFull(main)
     }
@@ -19,7 +19,7 @@ function EditParticle(){
                 "number": {
                     "value": 30,
                     "density": {
-                        "enable": false,
+                        "enable": true,
                         "value_area": 800
                     }
                 },
@@ -27,7 +27,7 @@ function EditParticle(){
                     "value": "#fff"
                 },
                 "shape": {
-                    "type": "circle",
+                    "type": "star",
                     "options": {
                         "sides": 5
                     }
@@ -72,7 +72,7 @@ function EditParticle(){
                 "move": {
                     "enable": true,
                     "speed": 2,
-                    "direction": "right",
+                    "direction": "bottom",
                     "random": false,
                     "straight": true,
                     "out_mode": "out",
@@ -133,4 +133,4 @@ function EditParticle(){
     );
 }
 
-export default EditParticle;
+export default ForgotParticle;

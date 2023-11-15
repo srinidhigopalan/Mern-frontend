@@ -20,8 +20,11 @@ function SignupForm(props){
          <div class="Paragraph">Don't have an account?</div>
         <div class="Title">Create Account</div>
             <input defaultValue={props.nameVal} onChange={(event)=>setName(event.target.value)} class="Input" placeholder="enter name"/>
+            <br/>
             <input defaultValue={props.emailVal} onChange={(event)=>setEmail(event.target.value)} class="Input" placeholder="enter email"/>
+            <br/>
             <input defaultValue={props.passwordVal} onChange={(event)=>setPassword(event.target.value)} class="Input" placeholder="enter password"/>
+            <br/>
             <button onClick={handleclick} class="Button" type="submit">Sign Up</button>
         </div>
     )

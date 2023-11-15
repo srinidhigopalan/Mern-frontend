@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import  Axios  from "axios";
 import { useParams } from "react-router-dom";
 import EditAccountForm from "./EditAccountForm";
-import "../Styles.css";
+import ".././UserLogin/Styles.css";
 
 function EditAccountPage(){
     const [newData,setNewData]=useState([]);
@@ -28,7 +28,7 @@ function EditAccountPage(){
         Axios.put("http://localhost:4000/user/user-edit/edit-user/",data)
         .then((res)=>{
             if(res.status===200)
-                alert("record updated")
+            window.location.reload();
             else    Promise.reject();
         })
         .catch((err)=>alert(err));

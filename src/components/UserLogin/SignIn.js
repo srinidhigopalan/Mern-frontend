@@ -16,10 +16,10 @@ function SignIn() {
     const handleSignup=(event)=>{
         event.preventDefault();
         const data={name:arr[0],email:arr[1],password:arr[2]};
-        Axios.post("https://crud-v5x6.onrender.com/users/user-create/signup",data)
+        Axios.post("http://localhost:8000/users/user-create/signup",data)
         .then((res)=>{
             if(res.status===200)
-            alert("record added successfully");
+            window.location.reload();
             else
             Promise.reject();
         })
@@ -33,7 +33,7 @@ function SignIn() {
         Axios.post("https://crud-v5x6.onrender.com/user/user-create/login",data)
         .then((res)=>{
             if(res.status===200)
-            alert("login successfull");
+            window.location.href = '/profile';
             else if(res.status===500)
             alert("Invalid Credentials");
             else

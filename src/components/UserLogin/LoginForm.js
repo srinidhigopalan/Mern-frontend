@@ -17,10 +17,12 @@ function LoginForm(props){
         <div>
             <div class="Title">Sign in</div>
             <input defaultValue={props.emailVal} onChange={(event)=>setEmail(event.target.value)} class="Input" placeholder="enter email"/>
+            <br/>
             <input defaultValue={props.passwordVal} onChange={(event)=>setPassword(event.target.value)} class="Input" placeholder="enter password"/>
+            <br/>
             <button onClick={handleclick} class="Button" type="submit">Log In</button>
             <br/> <br/>
-            <a class="Anchor" href='#'>Forgot your password?</a>
+            <a class="Anchor" href='/forgot-password'>Forgot your password?</a>
         </div>
     )
 }
