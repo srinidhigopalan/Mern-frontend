@@ -6,36 +6,14 @@ const EditTaskPopup = ({modal, toggle, taskObj}) => {
     const [task_desc, setDescription] = useState("");
     const [reminder_active,setReminderActive]=useState(false);
     const [reminder_time,setReminderTime]=useState("");
+    const [star,setStar]=useState(taskObj.star);
 
-    // const handleChange = (e) => {
-        
-    //     const {name, value} = e.target
-
-    //     if(name === "taskName"){
-    //         setTaskName(value)
-    //     }else{
-    //         setDescription(value)
-    //     }
-
-
-    // }
-
-    //taskObj
-    // const task = {
-    //   task_id: _id,
-    //   task_name: task_name,
-    //   task_description: task_desc,
-    //   star: true,
-    //   priority_number: priority_number,
-    //   reminder_active: reminder_active,
-    //   reminder_time: reminder_time,
-    //   completed: completed
-    // }
 
     useEffect(() => {
         setTaskName(taskObj.task_name)
         setDescription(taskObj.task_description)
         setReminderActive(taskObj.reminder_active)
+        setReminderTime(taskObj.reminder_time)
     },[])
 
     function sendDateTime() {
@@ -60,10 +38,25 @@ const EditTaskPopup = ({modal, toggle, taskObj}) => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        let tempObj = {}
-        tempObj['Name'] = task_name
-        tempObj['Description'] = task_desc
-        updateTask(tempObj)
+        const task = {
+              task_id: taskObj._id,
+              task_name: task_name,
+              task_description: task_desc,
+              star: taskObj.star,
+              priority_number: taskObj.priority_number,
+              reminder_active: reminder_active,
+              reminder_time: reminder_time,
+              completed: taskObj.completed
+            }
+        Axios.put("http://localhost:8000/tasks/task/edit-task",task)
+        .then((res)=>{
+            if(res.data.status===500){
+                console.log("error")
+            }else{
+                console.log("success")
+            }
+        }).catch((err)=>alert(err))
+        
     }
 
     return (
@@ -79,6 +72,7 @@ const EditTaskPopup = ({modal, toggle, taskObj}) => {
                         <label>Description</label>
                         <textarea rows = "5" className = "Input" value = {taskObj.task_description} onChange = {(e)=>setDescription(e.target.value)} name = "description"></textarea>
                     </div>
+                    {/* debug for checkbox toggle T/F */}
                     <div className="form-group">
                     <input class="form-check-input" type="checkbox" value = {taskObj.reminder_active} onChange={(e)=>setReminderActive(e.target.value)} id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">
@@ -90,6 +84,7 @@ const EditTaskPopup = ({modal, toggle, taskObj}) => {
                     <button onClick={sendDateTime} >Set Reminder</button>
 
                 </div>
+                
                 
             </ModalBody>
             <ModalFooter>
