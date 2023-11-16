@@ -5,9 +5,15 @@ import { BsCheckLg } from 'react-icons/bs';
 import { AiOutlineStar } from "react-icons/ai";
 import { FaArrowAltCircleUp,FaArrowAltCircleDown } from "react-icons/fa";
 import {IoMdAlarm} from "react-icons/io";
-import Reminder from "../Reactreminder/Reminder";
+import { CiEdit } from "react-icons/ci";
+import EditTaskPopup from "./EditTaskPopup";
+import { useState } from "react";
 function Taskrow(props) {
-  // const [showReminder,setShowReminder]=useState(false);
+  const [modal,setModal]=useState(false);
+  const toggle=()=>{
+    setModal(!modal);
+  }
+  
   const { _id, user_email_id,
     task_name,
     task_desc,
@@ -95,6 +101,11 @@ function Taskrow(props) {
 
       </div>
       <div>
+      <CiEdit 
+      className="icon" 
+      onClick={()=>setModal(true)}
+      />
+      
         <AiOutlineDelete
           title="Delete?"
           className="icon"
@@ -110,16 +121,17 @@ function Taskrow(props) {
           className={star ? 'star clicked' : 'star'}
           onClick={() => handleStarClick()}
         />
-        <Link to={{
+        {/* <Link to={{
           pathname:"/reminder",
           state:task
         }}>
         <IoMdAlarm
         title="Reminder?"
         className="icon"
-        /></Link>
+        /></Link> */}
 
       </div>
+      <EditTaskPopup modal={modal} toggle={toggle} taskObj={task}/>
     </div>
 
 
