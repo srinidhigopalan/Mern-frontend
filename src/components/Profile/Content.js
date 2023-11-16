@@ -5,6 +5,7 @@ import Axios from "axios";
 import Completedrow from './Completedrow';
 
 function Content() {
+  const [task_count,setTaskCount]=useState(0);
   //to toggle
   const [isCompletedScreen, setIsCompletedScreen] = useState(false);
 
@@ -16,7 +17,7 @@ function Content() {
   const [task_name, setTaskName] = useState("");
   const [task_desc, setTaskDesc] = useState("");
   const [star, setStar] = useState(false);
-  const [priority_number, setPriorityNumber] = useState(); //SET PRIORITY
+  const [priority_number, setPriorityNumber] = useState(task_count); //SET PRIORITY
   const [reminder_active, setReminderActive] = useState(false);
   const [reminder_time, setReminderTime] = useState("");
   const [completed, setCompleted] = useState(false);
@@ -35,8 +36,11 @@ function Content() {
     }
     Axios.post("http://localhost:8000/tasks/task/create-task", data)
       .then((res) => {
-        if (res.status === 200)
-          alert("record added successfully");
+        if (res.status === 200) {
+          // alert("record added successfully");
+          setTaskCount(count=>count+1);
+          window.location.reload();
+        }
         else
           Promise.reject();
       })
@@ -70,17 +74,33 @@ function Content() {
 
   //display task row
   const pendingItems = () => {
+    curr.sort((a, b) =>(!a.star&&b.star) && (a.priority_number < b.priority_number) ? 1 : -1)
     return curr.map((val, ind) => {
       return <Taskrow obj={val} />
     })
   }
 
   const completedItems = () => {
+    //display in sorted order(debug?)
+    completedTasks.sort((a, b) => a.priority_number > b.priority_number ? 1 : -1)
     return completedTasks.map((val, ind) => {
       return <Completedrow obj={val} />
     })
   }
 
+  // const swapElements = (array, index1, index2) => {
+  //   array[index1] = array.splice(index2, 1, array[index1])[0];
+  // };
+
+  // function goUp(index) {
+  //   swapElements(curr,index,index-1);
+  //   //edit-task for index and index-1 objs
+    
+  // }
+
+  // function goDown(index){
+  //   swapElements(curr,index,index+1);
+  // }
 
   return (
     <div className="App">

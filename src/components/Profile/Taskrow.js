@@ -3,8 +3,11 @@ import './Profile.css';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { AiOutlineStar } from "react-icons/ai";
-
+import { FaArrowAltCircleUp,FaArrowAltCircleDown } from "react-icons/fa";
+import {IoMdAlarm} from "react-icons/io";
+import Reminder from "../Reactreminder/Reminder";
 function Taskrow(props) {
+  // const [showReminder,setShowReminder]=useState(false);
   const { _id, user_email_id,
     task_name,
     task_desc,
@@ -13,6 +16,17 @@ function Taskrow(props) {
     reminder_active,
     reminder_time,
     completed } = props.obj; //Object destruction
+
+    const task = {
+      task_id: _id,
+      task_name: task_name,
+      task_description: task_desc,
+      star: true,
+      priority_number: priority_number,
+      reminder_active: reminder_active,
+      reminder_time: reminder_time,
+      completed: completed
+    }
 
   const handleToDoDelete = () => {
     Axios.delete("http://localhost:8000/tasks/task/delete-task", _id)
@@ -68,6 +82,11 @@ function Taskrow(props) {
       .catch((err) => alert(err));
   }
 
+  // const handleReminder=()=>{
+  //   setShowReminder(true);
+  //   // <Reminder task={task} />
+  // }
+
   return (
     <div className="todo-list-item">
       <div>
@@ -91,6 +110,14 @@ function Taskrow(props) {
           className={star ? 'star clicked' : 'star'}
           onClick={() => handleStarClick()}
         />
+        <Link to={{
+          pathname:"/reminder",
+          state:task
+        }}>
+        <IoMdAlarm
+        title="Reminder?"
+        className="icon"
+        /></Link>
 
       </div>
     </div>

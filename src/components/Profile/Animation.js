@@ -1,6 +1,6 @@
 import React from 'react'
 import './Animation.css'
-
+import Rocket from './Rocket/Rocket'
 
 const Animation = () => {
   return (
@@ -14,11 +14,7 @@ const Animation = () => {
         <div class="crater crater-5"></div>
         <div class="shadow"></div>
     </div>
-    <div class="orbit">
-        <div class="rocket">
-            <div class="window"></div>
-        </div>
-    </div>
+    <Rocket/>
 </div>
     </>
   )
