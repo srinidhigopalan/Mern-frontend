@@ -3,12 +3,17 @@ import './Profile.css';
 import Taskrow from './Taskrow';
 import Axios from "axios";
 import Completedrow from './Completedrow';
-
+import CreateTaskPopup from './CreateTaskPopup';
 function Content() {
   const [task_count,setTaskCount]=useState(0);
   //to toggle
   const [isCompletedScreen, setIsCompletedScreen] = useState(false);
 
+  //for create task
+  const [modal,setModal]=useState(false);
+  const toggle=()=>{
+    setModal(!modal);
+  }
   //for get requests of pending and completes tasks
   const [curr, setCurr] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -88,20 +93,6 @@ function Content() {
     })
   }
 
-  // const swapElements = (array, index1, index2) => {
-  //   array[index1] = array.splice(index2, 1, array[index1])[0];
-  // };
-
-  // function goUp(index) {
-  //   swapElements(curr,index,index-1);
-  //   //edit-task for index and index-1 objs
-    
-  // }
-
-  // function goDown(index){
-  //   swapElements(curr,index,index+1);
-  // }
-
   return (
     <div className="App">
 
@@ -109,7 +100,7 @@ function Content() {
       <div className="todo-wrapper">
 
         <div className="todo-input">
-          <div className="todo-input-item">
+          {/* <div className="todo-input-item">
             <label>Title:</label>
             <input
               type="text"
@@ -126,14 +117,14 @@ function Content() {
               onChange={e => setTaskDesc(e.target.value)}
               placeholder="Enter description "
             />
-          </div>
+          </div> */}
           <div className="todo-input-item">
             <button
               className="primary-btn"
               type="button"
-              onClick={handleSubmit}
+              onClick={()=>setModal(true)}
             >
-              Add
+              New Task
             </button>
           </div>
         </div>
@@ -157,6 +148,7 @@ function Content() {
 
         </div>
       </div>
+      <CreateTaskPopup toggle={toggle} modal={modal}/>
     </div>
   );
 }
