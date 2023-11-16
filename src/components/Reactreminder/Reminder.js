@@ -1,9 +1,9 @@
 import React from 'react';
 import './Reminder.css';
 
+function Reminder({data}) {
 
-class Reminder extends React.Component {
-  sendDateTime() {
+  function sendDateTime() {
     const datetimeInput = document.getElementById("datetime");
     const selectedDateTime = new Date(datetimeInput.value);
 
@@ -21,20 +21,31 @@ class Reminder extends React.Component {
 
     const formattedDateTime = `${month} ${day} ${year} ${hours}:${minutes}:${seconds}`;
 
-   
-    console.log("Formatted Date and Time:", formattedDateTime);
+   //get data props, and edit reminder-time: formattedDateTime
+   data.reminder_time=formattedDateTime;
+   Axios.put("http://localhost:8000/tasks/task/edit-task",data)
+   .then((res)=>{
+    if(res.status===200)
+    window.location.href='/profile'
+    else
+    Promise.reject();
+   })
+   .catch((err)=>alert(err));
   }
 
-  render() {
+  
     return (
+      <>
+     
         <div className="reminder-container">
             <h2 style={{color: "azure"}}>Set your reminder here</h2>
         <label htmlFor="datetime"style={{color: "azure", marginTop:"50px"} } >Select Date and Time:</label>
         <input type="datetime-local" id="datetime" style={{marginTop:"50px"}} />
-        <button onClick={this.sendDateTime} style={{marginLeft:"10px" , marginTop:"50px"}}>Send</button>
+        <button onClick={sendDateTime} style={{marginLeft:"10px" , marginTop:"50px"}}>Send</button>
       </div>
+      </>
     );
-  }
+  
 }
 
 export default Reminder;
