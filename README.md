@@ -1,52 +1,23 @@
 # TASKFORGE
 
-## Project Structure
+## Overview
+This project is a web application organized into various components. Each component is responsible for a specific page or functionality. Follow these guidelines to add new pages and style them properly.
 
-src/
-
-  components/
-  
-    NavBar/
-      MaybeShowNavbar.js
-
-    UserLogin/
-      Login.js
-      SignUp.js
-      EditAccount.js
-      ForgotPassword.js
-      ResetOtp.js
-      styles.css
-
-    Home/
-      Home.js
-
-    Profile/
-      Profile.js
-
-    Reminder/
-      Reminder.js
-
-    DeleteAccount/
-      DeleteAccount.js
-
-  App.js
-
-
-## Guidelines
+### Guidelines
 
 1) Adding Pages:
-Create a new folder in src/components/ for your page.
-Add JavaScript files and styles.css for custom styles.
+Create a new folder under src/components/ for your page.
+Include necessary JavaScript files and a styles.css file for custom styles if needed.
 
 2) Styling:
-Use styles.css in your page folder or import styles from Components.js in UserLogin.
+Use styles.css in your page's folder for custom styles.
+Alternatively, import styles from Components.js located in the UserLogin folder if applicable.
 
 3) Navbar:
-Use MaybeShowNavbar.js to control Navbar visibility on different pages.
+Use MaybeShowNavbar.js from the NavBar folder to manage Navbar visibility on different pages.
 
 4) Routing:
-Do not modify App.js directly. It handles routing.
-
+Do not modify App.js directly. It handles routing for the application.
 
 # Getting Started with Create React App
 
