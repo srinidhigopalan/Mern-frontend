@@ -1,20 +1,42 @@
-Repo updated on: 15/11/2023
+# TASKFORGE
 
-The repo consists:
+## Project Structure
+src/
+  components/
+    NavBar/
+      MaybeShowNavbar.js
+    UserLogin/
+      Login.js
+      SignUp.js
+      EditAccount.js
+      ForgotPassword.js
+      ResetOtp.js
+      styles.css
+    Home/
+      Home.js
+    Profile/
+      Profile.js
+    Reminder/
+      Reminder.js
+    DeleteAccount/
+      DeleteAccount.js
+  App.js
 
-Login page, Sign up page, Navbar, Edit Account, Forgot Password (also includes reset otp) - Srinidhi
+## Guidelines
 
-Home page - Uthish
+1) Adding Pages:
+Create a new folder in src/components/ for your page.
+Add JavaScript files and styles.css for custom styles.
 
-Profile page, Reminder Page, Delete Account Page -  Muhila
+2) Styling:
+Use styles.css in your page folder or import styles from Components.js in UserLogin.
 
+3) Navbar:
+Use MaybeShowNavbar.js to control Navbar visibility on different pages.
 
-Note:
-1) Don't make any changes in App.js (only to be kept for routing).
-2) So just add a folder of your page under the "components" folder in src.
-3) For styling, you can import from "Components.js" or "styles.css" under "UserLogin" folder in components folder
+4) Routing:
+Do not modify App.js directly. It handles routing.
 
-Navbar specifications: Checkout the "NavBar" folder under components folder. It contains a file named "MaybeShowNavbar.js", it can be used to choose whether you want to show navbar at a certain page or not.
 
 # Getting Started with Create React App
 
