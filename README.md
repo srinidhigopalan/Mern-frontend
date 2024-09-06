@@ -1,45 +1,36 @@
 # TASKFORGE
 
 ## Project Structure
+
 src/
 
   components/
   
     NavBar/
-    
       MaybeShowNavbar.js
-      
+
     UserLogin/
-    
       Login.js
-      
       SignUp.js
-      
       EditAccount.js
-      
       ForgotPassword.js
-      
       ResetOtp.js
-      
       styles.css
-      
+
     Home/
-    
       Home.js
-      
+
     Profile/
-    
       Profile.js
-      
+
     Reminder/
-    
       Reminder.js
-      
+
     DeleteAccount/
-    
       DeleteAccount.js
-      
+
   App.js
+
 
 ## Guidelines
 
